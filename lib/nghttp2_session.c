@@ -25,10 +25,7 @@
 #include "nghttp2_session.h"
 
 #include <string.h>
-#include <stddef.h>
-#include <stdio.h>
 #include <assert.h>
-#include <stdarg.h>
 
 #include "nghttp2_helper.h"
 #include "nghttp2_net.h"
@@ -7945,7 +7942,7 @@ uint32_t nghttp2_session_get_remote_settings(nghttp2_session *session,
   }
 
   assert(0);
-  abort(); /* if NDEBUG is set */
+  BUG(); /* if NDEBUG is set */
 }
 
 uint32_t nghttp2_session_get_local_settings(nghttp2_session *session,
@@ -7970,7 +7967,7 @@ uint32_t nghttp2_session_get_local_settings(nghttp2_session *session,
   }
 
   assert(0);
-  abort(); /* if NDEBUG is set */
+  BUG(); /* if NDEBUG is set */
 }
 
 static int nghttp2_session_upgrade_internal(nghttp2_session *session,

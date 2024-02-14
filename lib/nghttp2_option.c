@@ -27,7 +27,7 @@
 #include "nghttp2_session.h"
 
 int nghttp2_option_new(nghttp2_option **option_ptr) {
-  *option_ptr = calloc(1, sizeof(nghttp2_option));
+  *option_ptr = kcalloc(1, sizeof(nghttp2_option), GFP_KERNEL);
 
   if (*option_ptr == NULL) {
     return NGHTTP2_ERR_NOMEM;
@@ -36,7 +36,7 @@ int nghttp2_option_new(nghttp2_option **option_ptr) {
   return 0;
 }
 
-void nghttp2_option_del(nghttp2_option *option) { free(option); }
+void nghttp2_option_del(nghttp2_option *option) { kfree(option); }
 
 void nghttp2_option_set_no_auto_window_update(nghttp2_option *option, int val) {
   option->opt_set_mask |= NGHTTP2_OPT_NO_AUTO_WINDOW_UPDATE;

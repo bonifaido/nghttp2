@@ -26,8 +26,7 @@
 
 #include <string.h>
 #include <assert.h>
-#include <stdio.h>
-#include <errno.h>
+#include <linux/sort.h>
 
 #include "nghttp2_helper.h"
 #include "nghttp2_net.h"
@@ -1029,7 +1028,7 @@ static int nv_compar(const void *lhs, const void *rhs) {
 }
 
 void nghttp2_nv_array_sort(nghttp2_nv *nva, size_t nvlen) {
-  qsort(nva, nvlen, sizeof(nghttp2_nv), nv_compar);
+  sort(nva, nvlen, sizeof(nghttp2_nv), nv_compar, NULL);
 }
 
 int nghttp2_nv_array_copy(nghttp2_nv **nva_ptr, const nghttp2_nv *nva,

@@ -25,7 +25,6 @@
 #include "nghttp2_stream.h"
 
 #include <assert.h>
-#include <stdio.h>
 
 #include "nghttp2_session.h"
 #include "nghttp2_helper.h"

@@ -26,9 +26,8 @@
  */
 #include "sfparse.h"
 
-#include <string.h>
+#include <linux/string.h>
 #include <assert.h>
-#include <stdlib.h>
 
 #define SF_STATE_DICT 0x08u
 #define SF_STATE_LIST 0x10u
@@ -641,7 +640,7 @@ int sf_parser_param(sf_parser *sfp, sf_vec *dest_key, sf_value *dest_value) {
     break;
   default:
     assert(0);
-    abort();
+    BUG();
   }
 
   if (parser_eof(sfp) || *sfp->pos != ';') {
@@ -695,7 +694,7 @@ static int parser_skip_params(sf_parser *sfp) {
       return rv;
     default:
       assert(0);
-      abort();
+      BUG();
     }
   }
 }
@@ -744,7 +743,7 @@ int sf_parser_inner_list(sf_parser *sfp, sf_value *dest) {
     break;
   default:
     assert(0);
-    abort();
+    BUG();
   }
 
   if (*sfp->pos == ')') {
@@ -780,7 +779,7 @@ static int parser_skip_inner_list(sf_parser *sfp) {
       return rv;
     default:
       assert(0);
-      abort();
+      BUG();
     }
   }
 }
@@ -886,7 +885,7 @@ int sf_parser_dict(sf_parser *sfp, sf_vec *dest_key, sf_value *dest_value) {
     break;
   default:
     assert(0);
-    abort();
+    BUG();
   }
 
   rv = parser_key(sfp, dest_key);
@@ -932,7 +931,7 @@ int sf_parser_list(sf_parser *sfp, sf_value *dest) {
     break;
   default:
     assert(0);
-    abort();
+    BUG();
   }
 
   if (*sfp->pos == '(') {
@@ -994,7 +993,7 @@ int sf_parser_item(sf_parser *sfp, sf_value *dest) {
     return SF_ERR_EOF;
   default:
     assert(0);
-    abort();
+    BUG();
   }
 
   if (*sfp->pos == '(') {

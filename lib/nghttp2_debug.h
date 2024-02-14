@@ -35,9 +35,7 @@
 #  define DEBUGF(...) nghttp2_debug_vprintf(__VA_ARGS__)
 void nghttp2_debug_vprintf(const char *format, ...);
 #else
-#  define DEBUGF(...)                                                          \
-    do {                                                                       \
-    } while (0)
+#  define DEBUGF(...) ;
 #endif
 
 #endif /* NGHTTP2_DEBUG_H */

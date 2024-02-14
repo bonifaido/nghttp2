@@ -38,7 +38,7 @@ void nghttp2_queue_free(nghttp2_queue *queue) {
     nghttp2_queue_cell *p = queue->front;
     while (p) {
       nghttp2_queue_cell *next = p->next;
-      free(p);
+      kfree(p);
       p = next;
     }
   }
@@ -46,7 +46,7 @@ void nghttp2_queue_free(nghttp2_queue *queue) {
 
 int nghttp2_queue_push(nghttp2_queue *queue, void *data) {
   nghttp2_queue_cell *new_cell =
-      (nghttp2_queue_cell *)malloc(sizeof(nghttp2_queue_cell));
+      (nghttp2_queue_cell *)kmalloc(sizeof(nghttp2_queue_cell), GFP_KERNEL);
   if (!new_cell) {
     return NGHTTP2_ERR_NOMEM;
   }
@@ -69,7 +69,7 @@ void nghttp2_queue_pop(nghttp2_queue *queue) {
   if (front == queue->back) {
     queue->back = NULL;
   }
-  free(front);
+  kfree(front);
 }
 
 void *nghttp2_queue_front(nghttp2_queue *queue) {

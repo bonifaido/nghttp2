@@ -27,7 +27,6 @@
 
 #include <string.h>
 #include <assert.h>
-#include <stdio.h>
 
 #include "nghttp2_helper.h"
 
@@ -136,12 +135,12 @@ void nghttp2_map_print_distance(nghttp2_map *map) {
     bkt = &map->table[i];
 
     if (bkt->data == NULL) {
-      fprintf(stderr, "@%u <EMPTY>\n", i);
+      pr_err("@%u <EMPTY>\n", i);
       continue;
     }
 
     idx = h2idx(bkt->hash, map->tablelenbits);
-    fprintf(stderr, "@%u hash=%08x key=%d base=%zu distance=%zu\n", i,
+    pr_err("@%u hash=%08x key=%d base=%zu distance=%zu\n", i,
             bkt->hash, bkt->key, idx,
             distance(map->tablelen, map->tablelenbits, bkt, idx));
   }

@@ -30,7 +30,6 @@
 #endif /* HAVE_CONFIG_H */
 
 #include <string.h>
-#include <stddef.h>
 
 #include <nghttp2/nghttp2.h>
 #include "nghttp2_mem.h"
