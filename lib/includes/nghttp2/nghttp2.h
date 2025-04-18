@@ -49,9 +49,18 @@ extern "C" {
 #else /* !defined(_MSC_VER) || (_MSC_VER >= 1800) */
 #include <linux/types.h>
 #endif /* !defined(_MSC_VER) || (_MSC_VER >= 1800) */
-#include <sys/types.h>
-#include <stdarg.h>
-#include <stddef.h>
+
+#define UINT8_MAX U8_MAX
+
+#define INT32_MIN S32_MIN
+#define INT32_MAX S32_MAX
+#define INT64_MIN S64_MIN
+#define INT64_MAX S64_MAX
+
+#define UINT32_MIN U32_MIN
+#define UINT32_MAX U32_MAX
+#define UINT64_MIN U64_MIN
+#define UINT64_MAX U64_MAX
 
 #include <nghttp2/nghttp2ver.h>
 

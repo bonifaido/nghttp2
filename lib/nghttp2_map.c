@@ -110,13 +110,13 @@ void nghttp2_map_print_distance(const nghttp2_map *map) {
     bkt = &map->table[i];
 
     if (bkt->data == NULL) {
-      fprintf(stderr, "@%zu <EMPTY>\n", i);
+      pr_err("@%zu <EMPTY>\n", i);
       continue;
     }
 
     idx = map_hash(map, bkt->key);
-    fprintf(stderr, "@%zu hash=%zu key=%d base=%zu distance=%u\n", i,
-            map_hash(map, bkt->key), bkt->key, idx, bkt->psl);
+    pr_err("@%zu hash=%zu key=%d base=%zu distance=%u\n", i,
+           map_hash(map, bkt->key), bkt->key, idx, bkt->psl);
   }
 }
 #endif /* !defined(WIN32) */

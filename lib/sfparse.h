@@ -43,10 +43,10 @@ extern "C" {
    https://sourceforge.net/p/predef/wiki/Compilers/ */
 #  include <stdint.h>
 #else /* !(defined(_MSC_VER) && (_MSC_VER < 1800)) */
-#  include <inttypes.h>
+#  include <linux/types.h>
 #endif /* !(defined(_MSC_VER) && (_MSC_VER < 1800)) */
-#include <sys/types.h>
-#include <stddef.h>
+// #include <sys/types.h>
+// #include <stddef.h>
 
 /**
  * @enum
