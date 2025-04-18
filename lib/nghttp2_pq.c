@@ -24,7 +24,6 @@
  */
 #include "nghttp2_pq.h"
 
-#include <stdio.h>
 #include <assert.h>
 
 #include "nghttp2_helper.h"
@@ -42,7 +41,7 @@ void nghttp2_pq_free(nghttp2_pq *pq) {
   pq->q = NULL;
 }
 
-static void swap(nghttp2_pq *pq, size_t i, size_t j) {
+static void ng_swap(nghttp2_pq *pq, size_t i, size_t j) {
   nghttp2_pq_entry *a = pq->q[i];
   nghttp2_pq_entry *b = pq->q[j];
 
@@ -59,7 +58,7 @@ static void bubble_up(nghttp2_pq *pq, size_t index) {
     if (!pq->less(pq->q[index], pq->q[parent])) {
       return;
     }
-    swap(pq, parent, index);
+    ng_swap(pq, parent, index);
     index = parent;
   }
 }
@@ -110,7 +109,7 @@ static void bubble_down(nghttp2_pq *pq, size_t index) {
     if (minindex == index) {
       return;
     }
-    swap(pq, index, minindex);
+    ng_swap(pq, index, minindex);
     index = minindex;
   }
 }

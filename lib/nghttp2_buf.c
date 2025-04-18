@@ -24,7 +24,6 @@
  */
 #include "nghttp2_buf.h"
 
-#include <stdio.h>
 
 #include "nghttp2_helper.h"
 #include "nghttp2_debug.h"

@@ -28,11 +28,11 @@
 #  include <windows.h>
 #endif /* HAVE_WINDOWS_H */
 
-#include <time.h>
+#include <linux/ktime.h>
 
 #if !defined(HAVE_GETTICKCOUNT64) || defined(__CYGWIN__)
 static uint64_t time_now_sec(void) {
-  time_t t = time(NULL);
+  time64_t t = ktime_get_real_seconds();
 
   if (t == -1) {
     return 0;

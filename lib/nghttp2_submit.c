@@ -487,7 +487,7 @@ int nghttp2_submit_altsvc(nghttp2_session *session, uint8_t flags,
   return 0;
 
 fail_item_malloc:
-  free(buf);
+  kfree(buf);
 
   return rv;
 }
@@ -570,7 +570,7 @@ int nghttp2_submit_origin(nghttp2_session *session, uint8_t flags,
   return 0;
 
 fail_item_malloc:
-  free(ov_copy);
+  kfree(ov_copy);
 
   return rv;
 }
@@ -642,7 +642,7 @@ int nghttp2_submit_priority_update(nghttp2_session *session, uint8_t flags,
   return 0;
 
 fail_item_malloc:
-  free(buf);
+  kfree(buf);
 
   return rv;
 }

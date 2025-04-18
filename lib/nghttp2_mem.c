@@ -27,25 +27,25 @@
 static void *default_malloc(size_t size, void *mem_user_data) {
   (void)mem_user_data;
 
-  return malloc(size);
+  return kmalloc(size, GFP_KERNEL);
 }
 
 static void default_free(void *ptr, void *mem_user_data) {
   (void)mem_user_data;
 
-  free(ptr);
+  kfree(ptr);
 }
 
 static void *default_calloc(size_t nmemb, size_t size, void *mem_user_data) {
   (void)mem_user_data;
 
-  return calloc(nmemb, size);
+  return kcalloc(nmemb, size, GFP_KERNEL);
 }
 
 static void *default_realloc(void *ptr, size_t size, void *mem_user_data) {
   (void)mem_user_data;
 
-  return realloc(ptr, size);
+  return krealloc(ptr, size, GFP_KERNEL);
 }
 
 static nghttp2_mem mem_default = {NULL, default_malloc, default_free,

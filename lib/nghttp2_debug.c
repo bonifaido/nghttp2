@@ -24,7 +24,6 @@
  */
 #include "nghttp2_debug.h"
 
-#include <stdio.h>
 
 #ifdef DEBUGBUILD
 
