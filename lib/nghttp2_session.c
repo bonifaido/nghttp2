@@ -6379,9 +6379,9 @@ nghttp2_ssize nghttp2_session_mem_recv2(nghttp2_session *session,
     case NGHTTP2_IB_IGN_CONTINUATION:
 #ifdef DEBUGBUILD
       if (iframe->state == NGHTTP2_IB_EXPECT_CONTINUATION) {
-        fprintf(stderr, "recv: [IB_EXPECT_CONTINUATION]\n");
+        printk("recv: [IB_EXPECT_CONTINUATION]\n");
       } else {
-        fprintf(stderr, "recv: [IB_IGN_CONTINUATION]\n");
+        printk("recv: [IB_IGN_CONTINUATION]\n");
       }
 #endif /* DEBUGBUILD */
 

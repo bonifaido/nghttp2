@@ -29,7 +29,7 @@
 
 static void nghttp2_default_debug_vfprintf_callback(const char *fmt,
                                                     va_list args) {
-  vfprintf(stderr, fmt, args);
+  printk(fmt, args);
 }
 
 static nghttp2_debug_vprintf_callback static_debug_vprintf_callback =
