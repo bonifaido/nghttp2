@@ -7206,7 +7206,7 @@ int nghttp2_session_pack_data(nghttp2_session *session, nghttp2_bufs *bufs,
     break;
   default:
     assert(0);
-    abort();
+    BUG();
   }
 
   if (payloadlen == NGHTTP2_ERR_DEFERRED ||

@@ -1708,7 +1708,7 @@ void sfparse_base64decode(sfparse_vec *dest, const sfparse_vec *src) {
     goto fin;
   case 1:
     assert(0);
-    abort();
+    BUG();
   case 3:
     if (src->base[src->len - 1] == '=') {
       left = 2;
